@@ -1,0 +1,35 @@
+:root {
+  --bg-light: #F8F9FA;
+  --bg-dark: #121212;
+  --text-light: #212529;
+  --text-dark: #E0E0E0;
+  --primary-light: #007BFF;
+  --primary-dark: #1E90FF;
+
+  /* Độ trong suốt cho light mode */
+  --light-5: rgba(248, 249, 250, 0.05);
+  --light-10: rgba(248, 249, 250, 0.10);
+  --light-30: rgba(248, 249, 250, 0.30);
+  --light-60: rgba(248, 249, 250, 0.60);
+  --light-100: rgba(248, 249, 250, 1.00);
+
+  /* Độ trong suốt cho dark mode */
+  --dark-5: rgba(18, 18, 18, 0.05);
+  --dark-10: rgba(18, 18, 18, 0.10);
+  --dark-30: rgba(18, 18, 18, 0.30);
+  --dark-60: rgba(18, 18, 18, 0.60);
+  --dark-100: rgba(18, 18, 18, 1.00);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  width: 100%;
+  height: 100dvh;
+
+}

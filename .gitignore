@@ -1,0 +1,4 @@
+backend/node_modules
+backend/data_warehouse
+frontend/node_modules
+node_modules

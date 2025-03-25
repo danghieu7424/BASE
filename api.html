@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Tool</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input, select, button, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <h1>API Tool</h1>
+    <form id="apiForm">
+        <div class="form-group">
+            <label for="apiUrl">API URL:</label>
+            <input type="url" id="apiUrl" placeholder="Enter API URL" required>
+        </div>
+        <div class="form-group">
+            <label for="method">HTTP Method:</label>
+            <select id="method" required>
+                <option value="GET">GET</option>
+                <option value="POST">POST</option>
+                <option value="PUT">PUT</option>
+                <option value="DELETE">DELETE</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="body">Request Body (JSON, optional for GET/DELETE):</label>
+            <textarea id="body" rows="5" placeholder="{ 'key': 'value' }"></textarea>
+        </div>
+        <button type="submit">Send Request</button>
+    </form>
+
+    <h2>Response</h2>
+    <pre id="responseOutput">No response yet.</pre>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const apiUrlInput = document.getElementById('apiUrl');
+
+            // Load saved URL from localStorage
+            const savedUrl = localStorage.getItem('apiUrl');
+            if (savedUrl) {
+                apiUrlInput.value = savedUrl;
+            }
+
+            // Save the URL to localStorage on input click
+            apiUrlInput.addEventListener('click', () => {
+                localStorage.setItem('apiUrl', apiUrlInput.value);
+            });
+
+            // Handle form submission
+            document.getElementById('apiForm').addEventListener('submit', async (event) => {
+                event.preventDefault();
+
+                const apiUrl = apiUrlInput.value;
+                const method = document.getElementById('method').value;
+                const body = document.getElementById('body').value;
+                const responseOutput = document.getElementById('responseOutput');
+
+                if (!apiUrl) {
+                    responseOutput.textContent = "Please provide a valid API URL.";
+                    return;
+                }
+
+                try {
+                    const options = {
+                        method,
+                        headers: { 'Content-Type': 'application/json' },
+                    };
+
+                    if (method !== 'GET' && body) {
+                        options.body = body;
+                    }
+
+                    const response = await fetch(apiUrl, options);
+                    const result = await response.json();
+                    responseOutput.textContent = JSON.stringify(result, null, 2);
+                } catch (error) {
+                    responseOutput.textContent = `Error: ${error.message}`;
+                }
+            });
+        });
+    </script>
+</body>
+</html>

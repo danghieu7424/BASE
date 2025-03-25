@@ -1,0 +1,152 @@
+.auth-container {
+    position: relative;
+    width: 300px;
+    margin: 50px auto;
+    padding: 6rem 20px 20px;
+    border: 1px solid var(--dark-10);
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.auth-container h2 {
+    position: absolute;
+    margin: 0;
+    padding: .5rem 1rem;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 0 0 .4rem .4rem;
+    background: var(--dark-10);
+}
+
+.auth-container h2::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -.5rem;
+    width: .5rem;
+    height: .5rem;
+    background-color: var(--dark-10);
+    mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M24,24L24,24C24,10.75,13.25,0,0,0v0l24,0V24z'/%3E%3C/svg%3E");
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M24,24L24,24C24,10.75,13.25,0,0,0v0l24,0V24z'/%3E%3C/svg%3E");
+}
+
+.auth-container h2::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -.5rem;
+    width: .5rem;
+    height: .5rem;
+    background-color: var(--dark-10);
+    transform: rotate(-90deg);
+    mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M24,24L24,24C24,10.75,13.25,0,0,0v0l24,0V24z'/%3E%3C/svg%3E");
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M24,24L24,24C24,10.75,13.25,0,0,0v0l24,0V24z'/%3E%3C/svg%3E");
+}
+
+/* 
+.auth-container input {
+    width: 90%;
+    padding: 8px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+} */
+
+.auth-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.auth-container button:hover {
+    background-color: #0056b3;
+}
+
+.auth-container p {
+    cursor: pointer;
+    color: #ff0000;
+    text-decoration: underline;
+}
+
+/* Hiển thị lỗi từ server */
+.error-text {
+    color: red;
+    font-size: 14px;
+}
+
+/* Hiển thị thông tin user sau khi đăng ký */
+.user-info {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f0f8ff;
+    border-radius: 5px;
+    text-align: left;
+}
+
+.user-info h3 {
+    color: #007bff;
+}
+
+.auth-container .box-input-style {
+    position: relative;
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.auth-container .box-input-style span {
+    position: absolute;
+    width: 2rem;
+    aspect-ratio: 1/1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.auth-container .box-input-style .icon-input {
+    top: 0;
+    left: 0;
+}
+
+.auth-container .box-input-style .show-password {
+    top: 0;
+    right: 0;
+    cursor: pointer;
+}
+
+.auth-container .box-input-style span svg {
+    position: relative;
+    width: 1rem;
+    height: 1rem;
+}
+
+
+.auth-container .box-input-style input {
+    position: relative;
+    width: calc(100% - 4rem);
+    padding: .5rem 2rem;
+    border: none;
+    border-bottom: 1px solid;
+    background-color: transparent;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.auth-container .box-input-style input:-webkit-autofill {
+    background-color: transparent !important;
+    -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
+    box-shadow: 0 0 0px 1000px transparent inset !important;
+}
+
+
+.auth-container .box-input-style :is(input:valid, input:focus) {
+    outline: none;
+    background: transparent;
+}
